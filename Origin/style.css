@@ -1,0 +1,111 @@
+/* Cascating Stylesheet */
+
+/* * -->  Alterar tudo */
+* {
+  margin: 0;
+}
+
+/* Definir duas tags com o mesmo estilo */
+html,
+body {
+  /* Uma variavel CSS */
+  --black: hsl(240, 6%, 13%);
+  --grey: hsl(240, 9%, 89%); /* h = cor s = saturação l = luz */
+
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  /* A suavização fonte vai funcionar somente em fontes webkit chrome, safari...*/
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  /* Colocar os elementos dentro do Body em certas "caixas" */
+  display: grid;
+  /* Disponibilizar os itens no meio */
+  place-items: center;
+}
+
+main {
+  background: url("images/background.svg");
+  /* Pixels --> Valores fixos */
+  width: 375px; /* largura */
+  height: 812px; /* altura */
+}
+
+/* Definir estilo para uma classe */
+.container {
+  max-width: 250px; /* largura máxima */
+  margin-left: auto; /* margem esquerda */
+  margin-right: auto; /* margem direita */
+
+  color: var(--grey); /* Usar variavel css */
+}
+
+.avatar {
+  /* 1rem --> 16px */
+  /* 160 / 16 --> 10 */
+  width: 10rem;
+  /* To R B L */
+  /* T RL B */
+  /* TB LR */
+  margin: 11.5rem auto 0;
+
+  position: relative;
+}
+
+.avatar span {
+  position: absolute; /* Crie-se niveis de alinhamento */
+  top: -15px;
+  z-index: 1; /* Profundidade para ficar em cima */
+}
+
+/* Imagem do primeiro nível */
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover; /* Cobrindo o espaço para não ficar torta */
+  /* https://bennettfeely.com/clippy/ */
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    100% 30%,
+    100% 70%,
+    70% 100%,
+    30% 100%,
+    0% 70%,
+    0% 30%
+  ); /* Fazer a imagem com uma forma */
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  color: var(--grey);
+  text-decoration: none;
+  margin-top: 0.25rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin-top: 2rem;
+}
+
+ul {
+  margin-top: 4rem;
+
+  list-style: none;
+  padding: 0; /* preenchimento */
+  display: flex; /* deixar os elementos um ao lado do outro */
+  gap: 0.5rem; /* espaço entre os blocos */
+  justify-content: center;
+}
